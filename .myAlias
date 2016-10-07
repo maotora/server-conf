@@ -1,0 +1,93 @@
+#}}}
+#-------- Global Alias {{{
+#------------------------------------------------------
+# usage: cp NF ND, cd ND, xdg-open NF, ...etc
+alias -g ND='*(/om[1])' 		# newest directory
+alias -g NF='*(.om[1])' 		# newest file
+
+#alias -g NE='2>|/dev/null'
+alias -g NO='&>|/dev/null'
+alias -g P='2>&1 | $PAGER'
+alias -g L='| less'
+alias -g M='| most'
+alias -g C='| wc -l'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g LL="2>&1 | less"
+alias -g CA="2>&1 | cat -A"
+alias -g NE="2> /dev/null"
+alias -g NUL="> /dev/null 2>&1"
+# some global aliases for redirection
+alias -g N="&>/dev/null"
+alias -g 1N="1>/dev/null"
+alias -g 2N="2>/dev/null"
+alias -g DN="/dev/null"
+alias -g PI="|"
+# Paging with less / head / tail
+alias -g LS='| less -S'
+alias -g EL='|& less'
+alias -g ELS='|& less -S'
+alias -g TRIM='| cut -c 1-$COLUMNS'
+alias -g H='| head'
+alias -g HL='| head -n $(( +LINES ? LINES - 4 : 20 ))'
+alias -g EH='|& head'
+alias -g EHL='|& head -n $(( +LINES ? LINES - 4 : 20 ))'
+alias -g TL='| tail -n $(( +LINES ? LINES - 4 : 20 ))'
+alias -g ET='|& tail'
+alias -g ETL='|& tail -n $(( +LINES ? LINES - 4 : 20 ))'
+# Sorting / counting
+alias -g C='| wc -l'
+alias -g SS='| sort'
+alias -g Su='| sort -u'
+alias -g Sn='| sort -n'
+alias -g Snr='| sort -nr'
+
+#}}}
+#-------- Suffix Alias {{{
+#------------------------------------------------------
+# open file with default program base on extension
+# Ex: 'alias -s avi=mplayer' makes 'file.avi' execute 'mplayer file.avi'
+
+alias -s {avi,flv,mkv,mp4,mpeg,mpg,ogv,wmv}=$PLAYER
+alias -s {flac,mp3,ogg,wav}=$MUSICER
+alias -s {gif,GIF,jpeg,JPEG,jpg,JPG,png,PNG}="background $IMAGEVIEWER"
+alias -s {djvu,pdf,ps}="background $READER"
+alias -s txt=$EDITOR
+alias -s epub="background $EBOOKER"
+alias -s {cbr,cbz}="background $COMICER"
+# might conflict with emacs org mode
+alias -s {at,ch,com,de,net,org}="background $BROWSER"
+
+# archive extractor
+alias -s ace="unace l"
+alias -s rar="unrar l"
+alias -s {tar,bz2,gz,xz}="tar tvf"	#tar.bz2,tar.gz,tar.xz
+alias -s zip="unzip -l"
+
+# color for common commands
+# tutorial video: http://www.youtube.com/watch?v=RbVCzxnKJL4
+if [ -x /usr/bin/dircolors ]; then
+   eval "`dircolors -b`"
+   alias ls='ls --color=auto'
+   alias dir='dir --color=auto'
+   alias vdir='vdir --color=auto'
+   alias grep='grep --color=auto'
+   alias fgrep='fgrep --color=auto'
+   alias egrep='egrep --color=auto'
+fi
+
+# My aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias tmux="tmux -2"
+
+#Misc
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias cp='cp -i'					
+alias rm='rm -i'					

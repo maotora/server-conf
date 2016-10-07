@@ -1,0 +1,46 @@
+#-------- Environment Variable {{{
+#------------------------------------------------------
+export HISTCONTROL=ignoreboth			#Remove Extra Commands
+export HISTCONTROL=erasedups			#Erase duplicates across the whole history
+HISTCONTROL=ignorespace				#Space follow by a cmd,will not be saved in history
+HISTCONTROL=ignoredups				#Rm Dupes, the continuous repeated entry from history 
+HISTFILESIZE=3000				#Bash history size limit
+HISTSIZE=1000
+export HISTTIMEFORMAT="%d/%m/%y %T "		#History list shows digital time and date
+
+#}}}
+#-------- Color {{{
+#------------------------------------------------------
+# color the manpages
+# tutorial video: http://www.youtube.com/watch?v=9BFaLAa428k
+export LESS_TERMCAP_mb=$'\E[01;31m'             # begin blinking
+export LESS_TERMCAP_md=$'\E[01;31m'             # begin bold
+export LESS_TERMCAP_me=$'\E[0m'                 # end mode
+export LESS_TERMCAP_se=$'\E[0m'                 # end standout-mode                 
+export LESS_TERMCAP_so=$'\E[01;44;33m'          # begin standout-mode - info box 
+export LESS_TERMCAP_ue=$'\E[0m'                 # end underline
+export LESS_TERMCAP_us=$'\E[01;32m'             # begin underline
+export GREP_COLORS='0;31'
+
+# uses ip or ifconfig, good on older or newer system
+m-ip() {
+        echo "--------------- Network Information ---------------"
+	# newer system like arch
+	ip addr | awk '/global/ {print $1,$2}' | cut -d\/ -f1
+	ip addr | awk '/global/ {print $3,$4}'
+	ip addr | awk '/ether/ {print $1,$2}'
+	ip addr | awk '/scope link/ {print $1,$2}' | cut -d\/ -f1
+	# older system like debian
+        ifconfig | awk '/inet addr/ {print $1,$2}' | awk -F: '{print $1,$2}'
+        ifconfig | awk '/Bcast/ {print $3}' | awk -F: '{print $1,$2}'
+        ifconfig | awk '/inet addr/ {print $4}' | awk -F: '{print $1,$2}'
+        ifconfig | awk '/HWaddr/ {print $4,$5}'
+        ifconfig | awk '/Scope:Link/ {print $1,$3}' | cut -d\/ -f1
+	echo Current IP $(curl -s http://checkip.dyndns.org/ | grep -o "[[:digit:].]\+")
+        echo "---------------------------------------------------"
+}
+
+# Golang env vars
+export GOROOT=/usr/lib/go
+export GOBIN=/home/niggacode/Projects/Go/Build
+export GOPATH=/home/niggacode/Projects/Go
