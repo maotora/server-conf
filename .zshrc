@@ -29,6 +29,10 @@ if [ -f ~/.myAlias ]; then
     . ~/.myAlias
 fi
 
+#Sourcing environments file.
+if [ -f ~/.myVariables ]; then
+    . ~/.myAlias
+fi
 
 #-------- Auto Start Tmux Session {{{
 #------------------------------------------------------

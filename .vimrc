@@ -1,7 +1,5 @@
 set nocompatible   " Disable vi-compatibility
 set t_Co=256
-execute pathogen#infect()
-colorscheme jellybeans
 set background=dark
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
