@@ -8,7 +8,7 @@ cfg-zsh-history() { $EDITOR $HISTFILE ;}
 ZSH=$HOME/.oh-my-zsh
 
 #Zsh_Theme
-ZSH_THEME="agnoster"
+ZSH_THEME="rkj-repos"
 
 # Comment this out to disable weekly auto-update checks
 DISABLE_AUTO_UPDATE="false"
