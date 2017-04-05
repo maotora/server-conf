@@ -42,5 +42,5 @@ m-ip() {
 
 # Golang env vars
 export GOROOT=/usr/lib/go
-export GOBIN=/home/niggacode/Projects/Go/Build
-export GOPATH=/home/niggacode/Projects/Go
+export GOBIN=$HOME/bin/Go/Build
+export GOPATH=$HOME/bin/Go

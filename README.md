@@ -1,5 +1,5 @@
-# server-conf
+# server Configurations.
 
-My server configurations.
+Sorta dotfiles for my server.
 
-Sorta dotfiles.
+Hope I don't expose nothing useful.
