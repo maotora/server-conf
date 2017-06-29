@@ -29,11 +29,6 @@ if [ -f ~/.myAlias ]; then
     . ~/.myAlias
 fi
 
-#Sourcing environments file.
-if [ -f ~/.myVariables ]; then
-    . ~/.myAlias
-fi
-
 #-------- Auto Start Tmux Session {{{
 #------------------------------------------------------
 # https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
