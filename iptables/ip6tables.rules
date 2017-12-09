@@ -14,11 +14,11 @@
 -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT
 
 # Allow SMTP connections for mail
--A INPUT 2 -p tcp --dport 587 -j ACCEPT
--A INPUT 3 -p tcp --dport 110 -j ACCEPT
--A INPUT 4 -p tcp --dport 143 -j ACCEPT
--A INPUT 5 -p tcp --dport 993 -j ACCEPT
--A INPUT 6 -p tcp --dport 995 -j ACCEPT
+#-A INPUT -p tcp --dport 110 -m state --state NEW -j ACCEPT
+#-A INPUT -p tcp --dport 143 -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 587 -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 993 -m state --state NEW -j ACCEPT
+-A INPUT -p tcp --dport 995 -m state --state NEW -j ACCEPT
 
 # Allow inbound traffic from established connections.
 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
