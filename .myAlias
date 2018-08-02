@@ -96,3 +96,7 @@ alias rm='rm -i'
 export NPM_CONFIG_PREFIX=~/.npm-global
 export PATH=${PATH}:${NPM_CONFIG_PREFIX}/bin
 export NODE_ENV=production
+
+#pip stuff
+export PIP_PACKAGES=~/.local/lib/python2.7/site-packages
+export PATH=${PATH}:${PIP_PACKAGES}
